@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Pack | Account Login</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="TCapsule Web App">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+    
+    <link rel="stylesheet" href="assets/css/main.css" />
+    
+     <!-- Firebase and JQuery URL -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    
+     <!-- Google sign in Script -->
+     <meta name="google-signin-client_id" content="172891281780-t6tjhgpuc59gs2k7jn0at286bretq5n1.apps.googleusercontent.com">
+    <!-- Google Sign in Script -->
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    
+    <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+  
+
+    <!-- Material Design icons -->
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+   
+  </head>
+  <body class="contact" onload="javascipt:killAll();">
+    <!-- Add your site or app content here -->
+    <div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html"><img src="images/site-pics/logo.png" alt="Study Pack" title="Study Pack"/></a></h1>
+					<nav id="nav">
+						<ul>
+						   <li><a href="index.html">Welcome</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+                            <li>
+                                <a href="login.html" class="button special">Log In</a>
+                            </li>
+							<li>
+								<a href="activate.html" class="button special">Sign Up</a>
+							</li>		
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-lock"></span>
+						<h2>Log In</h2>
+						<p>Use the form below to login to the Study Pack</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 special container 35%">
+
+							<div class="content">
+									
+										<div class="row 50%">
+                                           <div class="6u 12u(mobile)">
+												<strong>Registered Email</strong>
+											</div>
+											<div class="6u 12u(mobile)">
+												<input type="email" id="lemail"/>
+											</div>
+										</div>
+										<div class="row 50%">
+                                           <div class="6u 12u(mobile)">
+												<strong>Current Password</strong>
+											</div>
+											<div class="6u 12u(mobile)">
+												<input type="password" id="lpass"/>
+											</div>
+										</div>
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+												
+											</div>
+											<div class="6u 12u(mobile)">
+												<ul class="buttons">
+											<li><input type="button" class="special" value="Sign In" onclick="loginUser();" /></li>
+												</ul>
+											</div>
+										</div>
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+												
+											</div>
+											<div class="6u 12u(mobile)">
+											  <a href="#">Did you forget your password?</a> 
+											</div>                                        
+										</div>
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+												
+											</div>
+											<div class="6u 12u(mobile)">
+											  <a href="activate.html">Don't have an account yet?</a>
+											</div>                                        
+										</div>
+                                        <div class="row">
+											<div class="12u">
+												
+											</div>
+										</div>
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+												
+											</div>
+											<div class="6u 12u(mobile)">
+												<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="xlarge">
+                                                Facebook Login
+                                                </fb:login-button>  
+											</div>                                        
+										</div>
+										<div class="row 50%">
+											<div class="6u 12u(mobile)">
+												
+											</div>
+                                            <div class="6u 12u(mobile)">
+                                                 <div id="my-signin2" align="center"></div>
+                                            </div>
+										</div>
+                                       
+                                        
+								</div>
+								
+
+						</section>
+
+				</article>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="https://twitter.com/codewired" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/AppsHaven" class="icon circle fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+						<li><a href="https://plus.google.com/u/0/b/107982492044424122264/+Gdgenugucoalcity" class="icon circle fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
+						<li><a href="https://github.com/codewired" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Copyright</li><li> <a href="http://www.appshaven.com" target="_blank">Apps Haven Global</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+            
+    <!-- Firebase Email Login Script -->
+    
+    <!-- Firebase Email Login Script -->
+    
+    <!-- Facebook Login Script -->
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            testAPI();
+            } else if (response.status === 'not_authorized') {
+            // The person is logged into Facebook, but not your app.
+            //document.getElementById('fbstatus').innerHTML = 'Please log ' + 'into this app.';
+            } else {
+            // The person is not logged into Facebook, so we're not sure if
+            // they are logged into this app or not.
+            //document.getElementById('fbstatus').innerHTML = 'Please log ' + 'into Facebook.';
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1247178618646412',
+                cookie     : true,  // enable cookies to allow the server to access 
+                                    // the session
+                xfbml      : true,  // parse social plugins on this page
+                version    : 'v2.2' // use version 2.2
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call 
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            //console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', { locale: 'en_US', fields: 'name, email' }, function(response) {
+            //console.log('Successful login for: ' + response.name);
+            //console.log('Facebook Users Email: ' + response.email);
+            //document.getElementById('fbstatus').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+            
+            //save user credentials and redirect to activation page
+            var fbname = response.name;
+            var fbmail = response.email;
+            
+            saveData(fbname,fbmail);
+            window.location = "sactivate.html";       
+            });
+        }
+    </script>  
+    <!-- Facebook Login Script -->
+    
+    <!-- #Gmail Login Script-->
+   <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      //document.getElementById('gstatus').innerHTML = 'Thanks for logging in, ' + googleUser.getBasicProfile().getName() + '!';
+      
+      //save user credentials and redirect to activation page
+      var gname = googleUser.getBasicProfile().getName();
+      var gemail = googleUser.getBasicProfile().getEmail();
+      
+      saveData(gname,gemail);
+      window.location = "sactivate.html";
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'https://www.googleapis.com/auth/plus.login',
+        'width': 235,
+        'height': 40,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+   </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    
+    <!-- #Gmail Login Panel -->
+    
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>//Google Analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-73753185-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+     <!-- Script To move users data from social media sign up to sactivate.html User For T-Capsule -->   
+    <script lang="text/javascript">
+     function saveData(name, email) {
+        var account = {
+            Name: name,
+            Email: email
+        };
+        //converts to JSON string the Object
+        account = JSON.stringify(account);
+        //creates a base-64 encoded ASCII string
+        account = btoa(account);
+        //save the encoded account to web storage
+        localStorage.setItem('_account', account);
+     }
+    </script>
+    
+    <!-- End Login and Activation Script -->
+    
+    <!-- Login User with email and password -->
+    <script>
+       function loginUser(){
+       
+        //Email User tries to login check if user is already in internal db, if so then check active status and login else show form
+            var retref = new Firebase('https://tcapsule.firebaseio.com/allusers');
+            var userkey = document.getElementById("lemail").value;
+            var upass = document.getElementById("lpass").value;
+            
+            
+            if((userkey.length < 5) || (upass.length < 5) ){
+                
+                alert("Please make sure you enter valid long details. Thanks!");
+            }
+            else{
+                
+                var oemail = userkey.replace(/\./g, ",");
+        
+                retref.child('clientindex/' + oemail).once('value', function (snap) {
+                        
+                        if(snap.val() != null){
+                            //Email already exists in our index so it is registerd, so check if status is activated
+                            retref.child("clientusers").child(snap.val()).child("userpass").on("value", function(keySnapshot) {
+                                
+                                if(keySnapshot.val() == upass){
+                                    //password matches
+                                    
+                                    
+                                    retref.child("clientusers").child(snap.val()).child("status").on("value", function(gsnap) {
+                                    
+                                    
+                                    if(gsnap.val() == "active"){
+                                        
+                                                
+                                            var regdetails = {
+                                                    ID: snap.val(),
+                                                    Email: userkey
+                                                };
+                                                var regdetails = JSON.stringify(regdetails);
+                                                
+                                                //creates a base-64 encoded ASCII string
+                                                regdetails = btoa(regdetails);
+                                                //console.log(regdetails);
+                                                //save the encoded account to web storage
+                                                localStorage.setItem('_regdetails', regdetails);
+                                        
+                                                window.location = 'authuser/';
+                            
+                                    }
+                                    else{
+                                        //store user data in local storage and take to already registered users verification page
+                                        var verdetails = {
+                                                ID: snap.val(),
+                                                Email: userkey
+                                            };
+                                        //converts to JSON string the Object
+                                        verdetails = JSON.stringify(verdetails);
+                                        //creates a base-64 encoded ASCII string
+                                        verdetails = btoa(verdetails);
+                                        //save the encoded account to web storage
+                                        localStorage.setItem('_verdetails', verdetails);   
+                                                                        
+                                        window.location = "verifyd.html";                               
+                                        
+                                    }
+                                    
+                                    
+                                        
+                                    });                              
+                                    
+                                }
+                                else{
+                                    
+                                    alert("The password you supplied does not match the email address on our system!");
+                                }    
+                                
+                            });
+                            
+                        }
+                        else{
+                            
+                            //Email is not in our index table so this guys is a rookie!
+                            alert("The email address you supplied does not exist on our platform yet. Create a new account!");
+                    }
+                    });
+            
+            }
+       }
+       
+    </script>
+    <!-- Login User with email and password -->
+    
+     <script>
+        function killAll(){
+        var regdetails = localStorage.getItem('_regdetails');
+        if(regdetails != null){
+            
+            localStorage.removeItem('_regdetails');  
+        }
+        }
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pack | UMEP Biology</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    
+    <!-- Firebase URL -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-red.min.css">
+
+    <!-- Material Design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" onload="javascript:loadData()">
+   
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+          
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h4>Study Pack Beta</h4>
+        </div>
+     
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#umepstart" class="mdl-layout__tab is-active">UMEP BIOLOGY : <span id="yr1"></span></a>
+          <a href="#results" class="mdl-layout__tab">Exam Results</a>
+          <a href="#stats" class="mdl-layout__tab">Statistics</a>
+           <div style="text-align: center; position:relative; width: 100%; border-width: 1px 0 0 0; ">
+              <button class="mdl-button mdl-button--raised mdl-button--accent" style="position: absolute; right: 50px ; top: 15px;" type="button" onclick="backHome();">UMEP HOME</button>
+          </div>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="umepstart">
+          
+         <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  
+                <h4 class="mdl-cell mdl-cell--12-col">Objective Biology : <span id="yr2"></span></h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"><h1><span id="qno"></span></h1></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5><strong><span id="quest"></span></strong></h5>
+                  <img id="qimg" src="/images/member-pics/no-image.png"/><br>
+                  <input type="radio" name="answer" value="option1"><strong>A. <span id="opt1"></span></strong><br>
+                  <input type="radio" name="answer" value="option2"><strong>B. <span id="opt2"></span></strong><br>
+                  <input type="radio" name="answer" value="option3"><strong>C. <span id="opt3"></span></strong><br>
+                  <input type="radio" name="answer" value="option4"><strong>D. <span id="opt4"></span></strong><br>
+                </div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                 <a href="#" class="mdl-button">Previous</a>
+                 &nbsp;&nbsp;&nbsp;
+                 <a href="#" class="mdl-button">Next</a>
+                 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                 <span id="qcount"></span>
+                 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                 <span id="timer"></span>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+              <li class="mdl-menu__item">Buy Prep Pack</li>
+              <li class="mdl-menu__item">Watch Videos</li>
+            </ul>
+          </section>
+          
+         <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+          
+        </div>
+        <div class="mdl-layout__tab-panel" id="results">
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-large/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="stats">
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+        </div>
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--middle-section">
+             <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Quick Links</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="umep.html">Main Page</a></li>
+                <li><a href="/index.html">Log Out</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Features</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Welcome Videos</a></li>
+                <li><a href="#">League Table</a></li>
+                <li><a href="#">Progress Report</a></li>
+                <li><a href="#">App Store</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">User Profile</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><span id="userspan"></span></li>
+                <li><span id="namespan"></span></li>
+                <li><span id="emailspan"></span></li>
+                <li><span id="gradespan"></span></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">FAQ</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Answers</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              More Information
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="http://www.appshaven.com" target="_blank">Apps Haven Global</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <!-- build:js(app/) ../../scripts/main.min.js -->
+     <!--<script src="../scripts/main.js"></script> -->
+    <!-- endbuild -->
+    
+    <!-- Built with love using Web Starter Kit -->
+    
+    <script>
+        function backHome(){
+        window.location = "umepstart.html";      
+        }
+   
+    </script>
+    
+    <script>
+        
+        var uemail;
+        var uname;
+        var ufname;
+        var ugrade;
+        
+           var getQueryString = function ( field, url ) {
+            var href = url ? url : window.location.href;
+            var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+            var string = reg.exec(href);
+            return string ? string[1] : null;
+        };
+        
+        function loadData() {
+          var regdetails = localStorage.getItem('_regdetails');
+          if (!regdetails){
+              
+              window.location = "/index.html";
+              
+          }
+          else {
+              
+              //decodes a string data encoded using base-64
+              regdetails = atob(regdetails);
+              //parses to Object the JSON string
+              regdetails = JSON.parse(regdetails);
+              //do what you need with the Object
+              
+              var retref = new Firebase('https://tcapsule.firebaseio.com/allusers');
+              
+              retref.child('clientusers/' + regdetails.ID).once('value', function (fullsnap) {
+                  
+                  var pdetails = JSON.stringify(fullsnap.val());
+                  //console.log(pdetails);
+                  var pdetails = JSON.parse(pdetails);
+              
+                  uemail = pdetails.emailadd;
+                  uname = pdetails.username;
+                  ufname = pdetails.firstname+" "+pdetails.lastname;
+                  ugrade = pdetails.gradelevel;
+                  
+                  document.getElementById("userspan").innerHTML = uname;
+                  document.getElementById("emailspan").innerHTML = uemail;
+                  document.getElementById("namespan").innerHTML = ufname;
+                  document.getElementById("gradespan").innerHTML = ugrade;
+                  
+                  //user profile ended for now
+              
+              });
+              
+              //Also load up Chemistry data for the specific year
+              
+              var curryr = getQueryString('yr');
+              document.getElementById("yr1").innerHTML = curryr;
+              document.getElementById("yr2").innerHTML = curryr;
+          
+            }
+        }
+        
+         
+    </script>
+    
+  </body>
+</html>

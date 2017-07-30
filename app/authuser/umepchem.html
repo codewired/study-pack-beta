@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Pack | UMEP Chemistry</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    
+    <!-- Firebase URL -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-red.min.css">
+
+    <!-- Material Design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+    
+    <!-- Your Scripts -->
+    
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" onload="javascript:loadData()">
+   
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+          
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h4>Study Pack Beta</h4>
+        </div>
+     
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#umepstart" class="mdl-layout__tab is-active">UMEP Chemistry : <span id="yr1"></span></a>
+          <a href="#results" class="mdl-layout__tab">Question Review</a>
+          <a href="#stats" class="mdl-layout__tab">Statistics</a>
+           <div style="text-align: center; position:relative; width: 100%; border-width: 1px 0 0 0; ">
+              <button class="mdl-button mdl-button--raised mdl-button--accent" style="position: absolute; right: 50px ; top: 15px;" type="button" onclick="backHome();">UMEP CHEMISTRY HOME</button>
+          </div>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="umepstart">       
+         <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  
+                <h4 class="mdl-cell mdl-cell--12-col">Objective Chemistry : <span id="yr2"></span></h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"><h3 style="color:white;">&nbsp;<span id="qno"></span></h3></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5><strong><span id="quest"></span></strong></h5>
+                  <img id="qimg" src="/images/member-pics/no-image.png"/><br>
+                  <input type="radio" id="ans1" name="answer" value="A"><strong>A: <span id="opt1"></span></strong><br>
+                  <input type="radio" id="ans2" name="answer" value="B"><strong>B: <span id="opt2"></span></strong><br>
+                  <input type="radio" id="ans3" name="answer" value="C"><strong>C: <span id="opt3"></span></strong><br>
+                  <input type="radio" id="ans4" name="answer" value="D"><strong>D: <span id="opt4"></span></strong><br>
+                </div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                <strong><span id="qcount"></span></strong>
+                 &nbsp;&nbsp;&nbsp;
+                <strong>
+                  <script language="JavaScript">
+                  TargetDate = new Date();
+                  BackColor = "white";
+                  ForeColor = "navy";
+                  CountActive = true;
+                  CountStepper = 1;
+                  LeadingZero = true;
+                  DisplayFormat = "%%H%%:%%M%%:%%S%%";
+                  FinishMessage = "";
+                  </script>
+                  <script language="JavaScript" src="../timer/countup.js"></script>
+                </strong>
+              </div>
+              <div class="mdl-card__actions">
+                <button class="mdl-button mdl-button--raised mdl-button--accent" type="button" onclick="moveBack();" id="backbut">Prev</button>
+                 &nbsp;&nbsp;&nbsp;
+                <button class="mdl-button mdl-button--raised mdl-button--accent" type="button" onclick="moveNext();" id="nextbut">Next</button>
+                 &nbsp;&nbsp;&nbsp;
+                <button class="mdl-button mdl-button--raised mdl-button--accent" type="button" onclick="subResult();" id="subresbut">Submit</button>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+              <li class="mdl-menu__item">Buy Prep Pack</li>
+              <li class="mdl-menu__item">Watch Videos</li>
+            </ul>
+          </section>
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="results">
+           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  
+                <h4 class="mdl-cell mdl-cell--12-col">Objective Chemistry : <span id="yr3"></span></h4>
+                
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"><h3 style="color:white;">&nbsp;<span id="rno"></span></h3></div>
+                </div>
+                
+                <div id="respan" class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5 style="color:blue"><strong><span id="rwarn"></span></strong></h5>
+                  <h5><strong><span id="rquest"></span></strong></h5>
+                  <img id="qimg" src="/images/member-pics/no-image.png"/><br>
+                  <h5><strong>A :</strong> <span id="ropt1"></span></h5>
+                  <h5><strong>B :</strong> <span id="ropt2"></span></h5>
+                  <h5><strong>C :</strong> <span id="ropt3"></span></h5>
+                  <h5><strong>D :</strong> <span id="ropt4"></span></h5>
+                  <h4 style="color:blue">Answer: <strong><span id="rcorans"></span></strong></h4>
+                  <h4>Your Answer: <strong><span id="rownans"></span> | <span id="rattempt"></span></strong></h4>
+                </div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                <button class="mdl-button mdl-button--raised mdl-button--accent" type="button" onclick="rmoveBack();" id="rbackbut">Prev</button>
+                 &nbsp;&nbsp;&nbsp;
+                <button class="mdl-button mdl-button--raised mdl-button--accent" type="button" onclick="rmoveNext();" id="rnextbut">Next</button>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <strong><span id="rqcount"></span></strong>
+        
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+              <li class="mdl-menu__item">Buy Prep Pack</li>
+              <li class="mdl-menu__item">Watch Videos</li>
+            </ul>
+          </section>
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="stats">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  
+                <h4 class="mdl-cell mdl-cell--12-col">Objective Chemistry : <span id="yr4"></span></h4>
+                
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div><img src="/images/icons-xsmall/ic_home_exam1.png" /></div>
+                </div>
+                
+                <div id="respan" class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h4 style="color:blue"><span id="statnote"></span></h4>
+                  <img id="statimg" src="/images/member-pics/no-image.png"/><br>
+                  <h5><strong>Correct Answers:</strong> <span id="qcor"></span></h5>
+                  <h5><strong>Wrong Answers:</strong> <span id="qwro"></span></h5>
+                  <h5><strong>Percentage Score:</strong> <span id="qper"></span></h5>
+                  <h5><strong>Final Grade:</strong> <span id="egrade"></span></h5>
+                </div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                 <a href="umepchemstart.html" class="mdl-button">START NEW PREP</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+              <li class="mdl-menu__item">Buy Prep Pack</li>
+              <li class="mdl-menu__item">Watch Videos</li>
+            </ul>
+          </section>
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_welcome_videos.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Welcome Videos </Strong></h5>
+               Get started easily with the quick start video tutorials
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_league_table.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>League Table </Strong></h5>
+               View your rankings and statistics on the League Table
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_menu_progress_report.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><Strong>Progress Report </Strong></h5>
+               See how you are fairing with the prep exams and tests.
+            </div>
+             <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div><img src="/images/icons-small/ic_store_coin.png"/></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><strong>App Store </strong></h5>
+               Browse prep and course packs while you pay as you go.
+            </div>
+          </section>
+        </div>
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--middle-section">
+             <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Quick Links</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="umep.html">UMEP Home Page</a></li>
+                <li><a href="/index.html">Log Out</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Features</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Welcome Videos</a></li>
+                <li><a href="#">League Table</a></li>
+                <li><a href="#">Progress Report</a></li>
+                <li><a href="#">App Store</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">User Profile</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><span id="userspan"></span></li>
+                <li><span id="namespan"></span></li>
+                <li><span id="emailspan"></span></li>
+                <li><span id="gradespan"></span></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">FAQ</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Answers</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              More Information
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="http://www.appshaven.com" target="_blank">Apps Haven Global</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <!-- build:js(app/) ../../scripts/main.min.js -->
+     <!--<script src="../scripts/main.js"></script> -->
+    <!-- endbuild -->
+    <!-- Built with love using Web Starter Kit -->
+    
+    <script>
+      // go back to main page
+        function backHome(){
+          window.location = "umepchemstart.html";      
+        }
+        
+        //get the year parameter of the current query string
+        var getQueryString = function ( field, url ) {
+            var href = url ? url : window.location.href;
+            var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+            var string = reg.exec(href);
+            return string ? string[1] : null;
+        };
+        
+      //Function to Start Any Time for Countdown
+       function startTimer(duration, display) {
+          var start = Date.now(),
+              diff,
+              minutes,
+              seconds;
+          function timer() {
+              // get the number of seconds that have elapsed since 
+              // startTimer() was called
+              diff = duration - (((Date.now() - start) / 1000) | 0);
+
+              // does the same job as parseInt truncates the float
+              minutes = (diff / 60) | 0;
+              seconds = (diff % 60) | 0;
+
+              minutes = minutes < 10 ? "0" + minutes : minutes;
+              seconds = seconds < 10 ? "0" + seconds : seconds;
+
+              display.textContent = minutes + ":" + seconds; 
+
+              if (diff <= 0) {
+                  // add one second so that the count down starts at the full duration
+                  // example 05:00 not 04:59
+                  start = Date.now() + 1000;
+              }
+          };
+          // we don't want to wait a full second before the timer starts
+          timer();
+          setInterval(timer, 1000);
+      }   
+    </script>
+    
+    <script>
+        //Global Variables
+        var uemail;
+        var uname;
+        var ufname;
+        var ugrade;
+        var questans;
+        
+        
+        var questotal = 10;
+        
+        var regdetails = localStorage.getItem('_regdetails');
+       
+      function loadData(){
+        
+        
+          if (!regdetails){
+              
+              window.location = "/index.html";
+              
+          }
+          else{
+              
+              //decodes a string data encoded using base-64
+              regdetails = atob(regdetails);
+              //parses to Object the JSON string
+              regdetails = JSON.parse(regdetails);
+              
+              //hide the final submit button until when question attempt is complete
+              document.getElementById("subresbut").style.visibility = "hidden";
+              
+              
+              var retref = new Firebase('https://tcapsule.firebaseio.com/allusers');
+              
+              retref.child('clientusers/' + regdetails.ID).once('value', function (fullsnap) {
+                  
+                  var pdetails = JSON.stringify(fullsnap.val());
+                  //console.log(pdetails);
+                  var pdetails = JSON.parse(pdetails);
+              
+                  uemail = pdetails.emailadd;
+                  uname = pdetails.username;
+                  ufname = pdetails.firstname+" "+pdetails.lastname;
+                  ugrade = pdetails.gradelevel;
+                  
+                  document.getElementById("userspan").innerHTML = uname;
+                  document.getElementById("emailspan").innerHTML = uemail;
+                  document.getElementById("namespan").innerHTML = ufname;
+                  document.getElementById("gradespan").innerHTML = ugrade;
+                  
+                  //user profile ended for now
+              
+              });
+              
+              //Also load up first Chemistry Objective Question for the specific year
+              
+              var curryr = getQueryString('yr');
+              document.getElementById("yr1").innerHTML = curryr;
+              document.getElementById("yr2").innerHTML = curryr;
+              document.getElementById("yr3").innerHTML = curryr;
+              document.getElementById("yr4").innerHTML = curryr;
+              //document.getElementById("yr5").innerHTML = curryr;
+              
+              //download first chemistry question for the year 
+              var examurl1 = "https://tcapsule.firebaseio.com/umepsubjects/chemistry/"+curryr;
+              var examref1 = new Firebase(examurl1);
+              var questno = 1;
+              examref1.child('Objective/'+questno).once('value', function (fullsnap){
+                  
+                var examdetails = JSON.stringify(fullsnap.val());
+                
+                //first of all encode the data and store for test session manipulation
+                //var econdedx = btoa(examdetails);
+                //localStorage.setItem('_examchemistry', econdedx);
+                
+                //load up question 1 for user to start attempting
+                var examjson = JSON.parse(examdetails);
+    
+                
+                document.getElementById("qno").innerHTML = questno;
+                document.getElementById("quest").innerHTML = examjson.Question;
+                document.getElementById("opt1").innerHTML = examjson.Option1;
+                document.getElementById("opt2").innerHTML = examjson.Option2;
+                document.getElementById("opt3").innerHTML = examjson.Option3;
+                document.getElementById("opt4").innerHTML = examjson.Option4;
+                
+                questans = examjson.Answer;
+                
+                
+                });
+                
+                //check if user has answered this question before and update option with current answer
+                var pullansurl1 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr+"/Objective/Answers/";
+                var pullref1 = new Firebase(pullansurl1);
+                pullref1.child(questno).once('value', function (fullsnap){
+                  
+                  if(fullsnap.val() != null){
+                    
+                    //user has answered question 1 before, get out answer and select it in the options radio button
+                    var ansdetails = JSON.stringify(fullsnap.val());
+                    var ansjson = JSON.parse(ansdetails);
+                    
+                    if(document.getElementById('ans1').value == ansjson.Response){
+                      document.getElementById('ans1').checked = true;
+                    }
+                    else if(document.getElementById('ans2').value == ansjson.Response){
+                      document.getElementById('ans2').checked = true;
+                    }
+                    else if(document.getElementById('ans3').value == ansjson.Response){
+                      document.getElementById('ans3').checked = true;
+                    }
+                    else if(document.getElementById('ans4').value == ansjson.Response){
+                      document.getElementById('ans4').checked = true;
+                    }
+                    
+                  }
+                  else{
+                    document.getElementById('ans1').checked = false;
+                    document.getElementById('ans2').checked = false;
+                    document.getElementById('ans3').checked = false;
+                    document.getElementById('ans4').checked = false;
+                  }
+                
+                  });
+                  
+                //load up count down timer and question tally
+                //var fiveMinutes = 60 * 10,
+                //display = document.querySelector('#timer');
+                //startTimer(fiveMinutes, display);
+                
+                document.querySelector('#qcount').innerHTML = questno + "/10";
+                
+                //call function that will set up Result viewing module
+                loadResult();
+          
+            }
+       }
+        
+         
+      function moveNext(){
+        
+        //function variables
+        var attempt;
+        var stdans;
+        
+        ///////FIRST OF ALL : GO DOWN LOW - Check if timer has elapsed before processing anything
+        
+        ////BEFORE MOVING TO THE NEXT QUESTIONS A FEW THINGS HAS TO BE DONE
+        
+        //get the current year from the page query string
+        var curryr = getQueryString('yr');
+        
+        //get the current number from placeholder
+        var currno = parseInt(document.getElementById("qno").innerHTML);
+        
+             
+        //check if student has selected or updated answer for current display and update result db
+        //Throw error if student hasn't answered the question.
+       
+        if (document.getElementById('ans1').checked) {
+          stdans = document.getElementById('ans1').value;
+        }
+        else if(document.getElementById('ans2').checked){
+          stdans = document.getElementById('ans2').value;
+        }
+        else if(document.getElementById('ans3').checked){
+          stdans = document.getElementById('ans3').value;
+        }
+        else if(document.getElementById('ans4').checked){
+         stdans = document.getElementById('ans4').value; 
+        }
+        else{
+          //nothing is checked set variable and continue
+          stdans = "NO";
+        }
+        
+        //if student has selected an answer proceed else please alert
+        if(stdans != "NO"){
+          
+            //Get the Out come of the Question Attempt
+            if(questans == stdans){
+              attempt = "Correct";
+            }
+            else{
+              attempt = "Incorrect";
+            }
+            //build up result url
+            var resurl1 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr+"/Objective/Answers/";
+            var result1 = new Firebase(resurl1);
+            var resultRef = result1.child(currno);
+            
+            //update result
+            resultRef.update({Answer:questans, Response:stdans, Attempt:attempt});
+            //console.log("Result Update Completed When Moving Forward!");
+      
+            
+            //check if we havent exceeded 10 questions for beta test and show next question       
+            if (currno < 10){
+              
+            //increment number and pull the next question
+            var no = currno + 1;
+            var examurl2 = "https://tcapsule.firebaseio.com/umepsubjects/chemistry/"+curryr;
+            var examref2 = new Firebase(examurl2);
+            examref2.child('Objective/'+no).once('value', function (fullsnap) {
+                  
+              var examdetails = JSON.stringify(fullsnap.val());
+                  
+                  
+              //load up current question for user to start attempting
+              var examjson = JSON.parse(examdetails);
+         
+                  
+              document.getElementById("qno").innerHTML = no;
+              document.getElementById("quest").innerHTML = examjson.Question;
+              document.getElementById("opt1").innerHTML = examjson.Option1;
+              document.getElementById("opt2").innerHTML = examjson.Option2;
+              document.getElementById("opt3").innerHTML = examjson.Option3;
+              document.getElementById("opt4").innerHTML = examjson.Option4;
+              
+              questans = examjson.Answer;  
+                
+            });
+            //console.log("Question Retrieval Completed When Moving Forward!");
+            
+            /////AFTER DISPLAYING NEXT QUESTION DO SOME VERY IMPORTANT THINGS
+            
+           //check if user has answered this question before and update option with current answer
+                var pullansurl2 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr+"/Objective/Answers/";
+                var pullref2 = new Firebase(pullansurl2);
+                pullref2.child(no).once('value', function (fullsnap){
+                  
+                  if(fullsnap.val() != null){
+                    
+                    //user has answered question 1 before, get out answer and select it in the options radio button
+                    var ansdetails = JSON.stringify(fullsnap.val());
+                    var ansjson = JSON.parse(ansdetails);
+                    
+                    if(document.getElementById('ans1').value == ansjson.Response){
+                      document.getElementById('ans1').checked = true;
+                    }
+                    else if(document.getElementById('ans2').value == ansjson.Response){
+                      document.getElementById('ans2').checked = true;
+                    }
+                    else if(document.getElementById('ans3').value == ansjson.Response){
+                      document.getElementById('ans3').checked = true;
+                    }
+                    else if(document.getElementById('ans4').value == ansjson.Response){
+                      document.getElementById('ans4').checked = true;
+                    }
+                    
+                  }
+                  else{
+                    document.getElementById('ans1').checked = false;
+                    document.getElementById('ans2').checked = false;
+                    document.getElementById('ans3').checked = false;
+                    document.getElementById('ans4').checked = false;
+                  }
+                
+                  });    
+            
+            //Update the question current and total count
+            document.querySelector('#qcount').innerHTML = no+"/10";
+            
+            }
+            else{
+              //Student has reached end of exam...display submit button for student to score them selves
+               document.getElementById("subresbut").style.visibility = "visible";
+               document.getElementById("nextbut").style.visibility = "hidden";
+            }
+        }
+        else{
+           alert("You have to choose an option from the answers listed. Select a radio button next to your answer!");
+        }
+        
+      }
+      function moveBack(){
+        
+        ///////FIRST OF ALL : GO DOWN LOW - Check if timer has elapsed before processing anything
+        
+        //get the current year from the page query string
+        var curryr2 = getQueryString('yr');
+        
+        //check the current number we are on and check reuslt db if user have answered it to select answer
+        var currno2 = parseInt(document.getElementById("qno").innerHTML);
+        
+        
+        //check if we havent reached the first question in the exam and keep loading previously answered questions
+        if (currno2 > 1){
+          
+        //decrease the number and pull previous question
+        var no2 = currno2 - 1;
+        
+        var examurl3 = "https://tcapsule.firebaseio.com/umepsubjects/chemistry/"+curryr2;
+        var examref3 = new Firebase(examurl3);
+        examref3.child('Objective/'+no2).once('value', function (fullsnap) {
+               
+          var examdetails = JSON.stringify(fullsnap.val());
+               
+          //first of all encode the data and store for test session manipulation
+          //var econdedx = btoa(examdetails);
+          //localStorage.setItem('_examchemistry', econdedx);
+               
+          //load up question 1 for user to start attempting
+          var examjson = JSON.parse(examdetails);
+          
+          //Check result db and get answered option to Select it for user
+               
+          document.getElementById("qno").innerHTML = no2;
+          document.getElementById("quest").innerHTML = examjson.Question;
+          document.getElementById("opt1").innerHTML = examjson.Option1;
+          document.getElementById("opt2").innerHTML = examjson.Option2;     
+          document.getElementById("opt3").innerHTML = examjson.Option3;
+          document.getElementById("opt4").innerHTML = examjson.Option4;       
+          
+          questans = examjson.Answer;      
+             
+        });
+        
+         //console.log("Question Retrieval Completed When Moving Backwards!");
+        
+        /////AFTER DISPLAYING PREVIOUS QUESTION DO SOME VERY IMPORTANT THINGS
+        
+        //check if user has answered this question before and update option with current answer
+                var pullansurl3 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr2+"/Objective/Answers/";
+                var pullref3 = new Firebase(pullansurl3);
+                pullref3.child(no2).once('value', function (fullsnap){
+                  
+                  if(fullsnap.val() != null){
+                    
+                    //user has answered question 1 before, get out answer and select it in the options radio button
+                    var ansdetails = JSON.stringify(fullsnap.val());
+                    var ansjson = JSON.parse(ansdetails);
+                    
+                    if(document.getElementById('ans1').value == ansjson.Response){
+                      document.getElementById('ans1').checked = true;
+                    }
+                    else if(document.getElementById('ans2').value == ansjson.Response){
+                      document.getElementById('ans2').checked = true;
+                    }
+                    else if(document.getElementById('ans3').value == ansjson.Response){
+                      document.getElementById('ans3').checked = true;
+                    }
+                    else if(document.getElementById('ans4').value == ansjson.Response){
+                      document.getElementById('ans4').checked = true;
+                    }
+                    
+                  }
+                  else{
+                    document.getElementById('ans1').checked = false;
+                    document.getElementById('ans2').checked = false;
+                    document.getElementById('ans3').checked = false;
+                    document.getElementById('ans4').checked = false;
+                  }
+                
+                  });    
+            
+        
+         //Update the question current and total count
+         document.querySelector('#qcount').innerHTML = no2+"/10";
+         
+         //check and see if submit button is showing and change it to Next
+         if(no2 < 10){
+          document.getElementById("subresbut").style.visibility = "hidden";
+          document.getElementById("nextbut").style.visibility = "visible";
+         }
+         
+        }
+        else{
+          alert("There are no previous questions beyond this point :D");
+        }
+        
+      }
+      function subResult(){   
+  
+        var curryr3 = getQueryString('yr');
+        
+        var passno = 0;
+        var failno = 0;
+        
+        //retrieve answer node and log to console to see
+        //get students answer for question
+        var pullansurl3 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr3+"/Objective/";
+        var pullref3 = new Firebase(pullansurl3);
+        pullref3.child("Answers").once('value', function (fullsnap){
+                  
+         if(fullsnap.val() != null){
+           
+           console.log("Retrieval of bulk Answers Complete");
+           
+           var ansdetails = JSON.parse(JSON.stringify(fullsnap.val()));
+           //console.log(ansdetails[1].Response);
+            for (i = 1; i <= questotal; i++) { 
+               //console.log(i);
+               //console.log(ansdetails[i].Response+" "+ansdetails[i].Attempt);
+               
+               if(ansdetails[i].Attempt == "Correct"){
+                  passno++;
+                }
+                else if(ansdetails[i].Attempt == "Incorrect"){
+                  failno++;
+                }
+              
+            }
+            
+            //build up statistics and insert data into stats collection for student
+            var percent = passno / questotal * 100;
+            var grade;
+            
+            
+            if(percent < 50 ){
+              grade = "POOR";
+            }
+            else if((percent >= 50) && (percent < 60)){
+              grade = "FAIR";
+            }     
+            else if((percent >= 60) && (percent < 80)){
+              grade = "GOOD";
+            }
+            else if(percent >= 80 ){
+              grade = "EXCELLENT";
+            }
+            
+            //insert stats for student
+            //build up result url
+            var staturl1 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+curryr3+"/Objective/";
+            var stat1 = new Firebase(staturl1);
+            var statRef = stat1.child("Statistics");
+                
+            //update result
+            statRef.update({Passed:passno, Failed:failno, Percentage:percent, Grade:grade});
+            
+            console.log("Statistic insertion complete for Student!");
+            
+            //loadup exam results and statistic panel once more
+            loadResult();
+            
+            alert("Thank You for Submiting your attempts. You can now view your results!");
+                     
+         }
+         
+        });
+              
+                   
+      }
+      
+    </script>
+    
+    <script>
+      
+      var rcurryr = getQueryString('yr');
+      
+      function loadResult(){
+        
+        //check if user has submited any attempts for this years course and load up stats and question review
+                var pullstaturl1 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+rcurryr+"/Objective/";
+                var rquestno = 1;
+                var statref1 = new Firebase(pullstaturl1);
+                statref1.child("Statistics").once('value', function (fullsnap){
+                  
+                  if(fullsnap.val() != null){
+                    
+                    //Retrieve user statistics for umep chemistry year
+                    var statdetails = JSON.stringify(fullsnap.val());
+                    var statjson = JSON.parse(statdetails);
+                    
+                    //load up stats view pan
+                    document.getElementById("statnote").innerHTML = "Result Summary";
+                    document.getElementById("statimg").src ="../images/icons-xsmall/"+statjson.Grade.toLowerCase()+".png";
+                    document.getElementById("qcor").innerHTML = statjson.Passed;
+                    document.getElementById("qwro").innerHTML = statjson.Failed;
+                    document.getElementById("qper").innerHTML = statjson.Percentage;
+                    document.getElementById("egrade").innerHTML = statjson.Grade;
+                    
+                    
+                    //pull another firebase request to load up Exam Answers for student
+                    var examurl4 = "https://tcapsule.firebaseio.com/umepsubjects/chemistry/"+rcurryr;
+                    var examref4 = new Firebase(examurl4);
+                    examref4.child('/Objective').once('value', function (fullsnap2) {
+                      
+                      if(fullsnap2.val() != null){
+                        
+                        //add this bulk questions to local strorage for use on DOM
+                        var stbexam = JSON.stringify(fullsnap2.val());
+                        var encstbexam = btoa(stbexam);
+                        localStorage.setItem('_bulkexam', encstbexam);
+                        
+                        //parse objcet so we can access the multidimensions
+                        var bulkexam = JSON.parse(stbexam);
+                                                
+                        //console.log("Bulk QUESTION retrieved and loaded to local storage");
+                        
+                        //pull students answers for this exam as well and add it to local storage
+                        var pullansurl4 = "https://tcapsule.firebaseio.com/allresults/"+regdetails.ID+"/umep/chemistry/"+rcurryr+"/Objective/";
+                        var pullref4 = new Firebase(pullansurl4);
+                        pullref4.child("Answers").once('value', function (fullsnap3){
+                                  
+                          if(fullsnap3.val() != null){
+                            
+                            //add this bulk Answers to local strorage for use on DOM
+                            var stbans = JSON.stringify(fullsnap3.val());
+                            var encstbans = btoa(stbans);
+                            localStorage.setItem('_bulkans', encstbans);
+                            
+                            var bulkans = JSON.parse(stbans);
+                                                    
+                            //console.log("Bulk ANSWERS retrieved and loaded to local storage");
+                            
+                            //now update the first question review for the year.
+                            document.getElementById("rwarn").innerHTML = " ";
+                            document.getElementById("rno").innerHTML = rquestno;
+                            document.getElementById("rquest").innerHTML = bulkexam[1].Question;
+                            document.getElementById("ropt1").innerHTML = bulkexam[1].Option1;
+                            document.getElementById("ropt2").innerHTML = bulkexam[1].Option2;
+                            document.getElementById("ropt3").innerHTML = bulkexam[1].Option3;
+                            document.getElementById("ropt4").innerHTML = bulkexam[1].Option4;
+                            document.getElementById("rcorans").innerHTML = bulkexam[1].Answer;
+                            document.getElementById("rownans").innerHTML = bulkans[1].Response;
+                            document.getElementById("rattempt").innerHTML = bulkans[1].Attempt;
+                            
+                            //change the style of the users attempt
+                            if(document.getElementById("rattempt").innerHTML == "Correct"){
+                              document.getElementById("rattempt").style.color = "green";
+                            }
+                            else{
+                              document.getElementById("rattempt").style.color = "red";
+                            }
+                            
+                            //Update the question current and total count
+                            document.querySelector('#rqcount').innerHTML = rquestno+"/10";
+                            document.getElementById("rbackbut").disabled = false;
+                            document.getElementById("rnextbut").disabled = false;
+                          }
+                          
+                        });
+                      }
+                    
+                    });
+                    
+                  }
+                  else{
+                    //User havent submitted any exams so let them know what they need to do before they can review
+                    document.getElementById("rwarn").innerHTML = "You have not completed objective chemistry "+rcurryr+" practice exam.";
+                    
+                     document.getElementById("statnote").innerHTML = "You have not completed objective chemistry "+rcurryr+" practice exam.";
+                    
+                    document.getElementById("rbackbut").disabled = true;
+                    document.getElementById("rnextbut").disabled = true;
+                    
+                    document.getElementById("ropt1").innerHTML = "NIL";
+                    document.getElementById("ropt2").innerHTML = "NIL";
+                    document.getElementById("ropt3").innerHTML = "NIL";
+                    document.getElementById("ropt4").innerHTML = "NIL";
+                    
+                    document.getElementById("qcor").innerHTML ="NIL";
+                    document.getElementById("qwro").innerHTML ="NIL";
+                    document.getElementById("qper").innerHTML = "NIL";
+                    document.getElementById("egrade").innerHTML = "NIL";
+                  }
+                
+                  });
+        
+      }
+      
+      function rmoveNext(){
+        
+        //get the current number from placeholder
+        var rcurrno = parseInt(document.getElementById("rno").innerHTML);
+        
+        //check if we havent exceeded 10 questions for beta test and show next question       
+        if (rcurrno < 10){
+          
+          //increment number and pull the next question
+          var rno = rcurrno + 1;
+          
+          //retrive bulk questions and bulk answers from local storage
+          var rbulkexam = localStorage.getItem('_bulkexam');
+          rbulkexam = atob(rbulkexam);
+          rbulkexam = JSON.parse(rbulkexam);
+          
+          var rbulkans = localStorage.getItem('_bulkans');
+          rbulkans = atob(rbulkans);
+          rbulkans = JSON.parse(rbulkans);
+          
+          
+          document.getElementById("rno").innerHTML = rno;
+          document.getElementById("rquest").innerHTML = rbulkexam[rno].Question;
+          document.getElementById("ropt1").innerHTML = rbulkexam[rno].Option1;
+          document.getElementById("ropt2").innerHTML = rbulkexam[rno].Option2;
+          document.getElementById("ropt3").innerHTML = rbulkexam[rno].Option3;
+          document.getElementById("ropt4").innerHTML = rbulkexam[rno].Option4;
+          document.getElementById("rcorans").innerHTML = rbulkexam[rno].Answer;
+          document.getElementById("rownans").innerHTML = rbulkans[rno].Response;
+          document.getElementById("rattempt").innerHTML = rbulkans[rno].Attempt;
+          
+          //change the style of the users attempt
+          if(document.getElementById("rattempt").innerHTML == "Correct"){
+               document.getElementById("rattempt").style.color = "green";
+             }
+         else{
+               document.getElementById("rattempt").style.color = "red";
+             }
+          
+          //Update the question current and total count
+          document.querySelector('#rqcount').innerHTML = rno+"/10";
+          
+        }
+        else{
+          alert("You have reached the end of the exam questions review!");
+        }
+        
+      }
+      
+      function rmoveBack(){
+        
+        //get the current number from placeholder
+        var rcurrno2 = parseInt(document.getElementById("rno").innerHTML);
+        
+        //check if we havent exceeded 10 questions for beta test and show next question       
+        if (rcurrno2 > 1){
+          
+          //increment number and pull the next question
+          var rno2 = rcurrno2 - 1;
+          
+          //retrive bulk questions and bulk answers from local storage
+          var rbulkexam = localStorage.getItem('_bulkexam');
+          rbulkexam = atob(rbulkexam);
+          rbulkexam = JSON.parse(rbulkexam);
+          
+          var rbulkans = localStorage.getItem('_bulkans');
+          rbulkans = atob(rbulkans);
+          rbulkans = JSON.parse(rbulkans);
+          
+          document.getElementById("rno").innerHTML = rno2;
+          document.getElementById("rquest").innerHTML = rbulkexam[rno2].Question;
+          document.getElementById("ropt1").innerHTML = rbulkexam[rno2].Option1;
+          document.getElementById("ropt2").innerHTML = rbulkexam[rno2].Option2;
+          document.getElementById("ropt3").innerHTML = rbulkexam[rno2].Option3;
+          document.getElementById("ropt4").innerHTML = rbulkexam[rno2].Option4;
+          document.getElementById("rcorans").innerHTML = rbulkexam[rno2].Answer;
+          document.getElementById("rownans").innerHTML = rbulkans[rno2].Response;
+          document.getElementById("rattempt").innerHTML = rbulkans[rno2].Attempt;
+          
+          //change the style of the users attempt
+          if(document.getElementById("rattempt").innerHTML == "Correct"){
+               document.getElementById("rattempt").style.color = "green";
+             }
+         else{
+               document.getElementById("rattempt").style.color = "red";
+             }
+          
+          //Update the question current and total count
+          document.querySelector('#rqcount').innerHTML = rno2+"/10";
+          
+        }
+        else{
+          alert("There are no previous questions beyond this point :D");
+        }
+      }
+    </script>
+  </body>
+</html>
