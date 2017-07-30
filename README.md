@@ -18,6 +18,11 @@ This is an Exam preparation progressive web application with real questions for 
 | Offline support                     | Thanks to our baked in [Service Worker](http://www.html5rocks.com/en/tutorials/service-worker/introduction/) [pre-caching](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js#L226), sites deploying `dist` to a HTTPS domain will enjoy offline support. This is made possible by [sw-precache](https://github.com/GoogleChrome/sw-precache/).                                                                                                                                              |
 | PageSpeed Insights                     | Web performance metrics showing how well your site performs on mobile and desktop (Run `gulp pagespeed`)       
 
+# Third Party Tools Site
+1.  Emailjs.com (Enables application to send email using javascript. Please ensure to change the key in the head tag to your own key, for pages that send email before deploying to staging or production!)
+2.  Firebase.com (Enables application to persist user data, retrieve questions and store answers.)
+3.  Vaadin.com (Provides amazing polymer web components installed via Bower.)
+
 # Getting Started
 1.	Clone or Fork this repository
 2.	Intall Node.js version 6 or higher (www.nodejs.org)
