@@ -257,6 +257,10 @@
             //clearText box
             clearText();
 
+            //Load it to Firebaase
+
+            loadFirebaseData(sendername, semail, sphone, smessage);
+
             alert("Thank you for your feedback, i still love you.");
 
         }
@@ -273,6 +277,18 @@
 
      function cancel(){
         window.location = "index.html";      
+     }
+
+     function loadFirebaseData(sender, email, phone, message){
+
+      //save data to firbase backend
+        var clientref = new Firebase('https://tcapsule.firebaseio.com/feedback');
+        var usersRef = clientref.child("webfeedback");
+        var refKey = usersRef.push();
+
+       //push user registration verified data
+        refKey.set({Fullname: sender, Sendermail: email, Senderphone: phone, Sendermessage: message});
+
      }
     </script>
     
